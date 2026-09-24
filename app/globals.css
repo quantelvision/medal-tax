@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color system — grounded in a deep advisory navy, warm paper, and an aged
+     brass accent (a deliberate, understated nod to "Medal" in the name,
+     without literal medal iconography). */
+  --color-ink: #171b1f;
+  --color-navy: #101a2e;
+  --color-navy-2: #16233c;
+  --color-paper: #f6f3ec;
+  --color-paper-2: #efe9dd;
+  --color-line: #dcd5c6;
+  --color-line-dark: #2a3550;
+  --color-brass: #a9793b;
+  --color-brass-2: #8a5f2b;
+  --color-brass-light: #d7b06b;
+  --color-slate: #5b6472;
+
+  /* Error red — the one other Phase 0 token pulled forward early, same
+     reasoning as the Phase 6 motion tokens: Phase 7's field-level validation
+     genuinely needs a colour outside navy/paper/brass/slate that doesn't
+     exist yet, and #9a2c2c is the exact value already verified in the
+     Phase 0 audit (6.84:1 on paper, comfortably AA). The rest of that token
+     proposal (a broader semantic colour system, type scale, spacing,
+     shadows) is still deferred. */
+  --color-error: #9a2c2c;
+
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --container-page: 1280px;
+
+  /* Motion tokens — the easing subset of the Phase 0 token proposal, pulled
+     forward because Phase 6 (interaction feedback, scroll reveals, page
+     transitions) explicitly depends on named easing curves rather than
+     Tailwind's stock defaults. The rest of that proposal (color roles, type
+     scale, spacing, shadows) is still deferred — see the audit backlog.
+     Tailwind v4's `--ease-*` namespace generates real `ease-*` utilities
+     from these automatically. There is no `--duration-*` namespace, so
+     durations live as plain custom properties below and are consumed via
+     `duration-[var(--dur-base)]`. */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1); /* default interaction feedback */
+  --ease-entrance: cubic-bezier(0.05, 0.7, 0.1, 1); /* things arriving (reveals) */
+  --ease-exit: cubic-bezier(0.3, 0, 0.8, 0.15); /* things leaving (page transitions) */
+
+  /* Radius scale — Phase 8. Deliberately restrained: this site's structural
+     language is sharp hairline borders, so radius is used only as a small
+     interactivity signal on buttons/inputs/cards/media, never as a visual
+     motif in its own right. These are the exact values proposed (unused)
+     back in the Phase 0 token audit, overriding Tailwind's own larger
+     defaults for the same names. */
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+}
+
+:root {
+  --dur-fast: 150ms; /* hover/focus feedback, lower end of the 150-250ms band */
+  --dur-base: 200ms; /* hover/focus feedback, default */
+  --dur-slow: 250ms; /* hover/focus feedback, upper end of the 150-250ms band */
+  --dur-reveal: 500ms; /* scroll-reveal entrances — outside the interaction-feedback band on purpose */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-brass-light);
+  color: var(--color-navy);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Editorial rule / divider */
+.hr-line {
+  height: 1px;
+  background: var(--color-line);
+}
+
+/* Custom thin scrollbar, sitewide — transparent track, navy thumb.
+   `scrollbar-width`/`scrollbar-color` are the standards-track properties
+   (Firefox, and Chromium 121+/Safari 18.2+); the `::-webkit-scrollbar-*`
+   pseudo-elements are the fallback older WebKit/Blink still needs, since
+   they don't read the standards properties. Both target `*` rather than
+   just `html`, so it also applies to any element with its own scrolling
+   overflow (e.g. the mega menu or a long Select popover), not only the page
+   scrollbar. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-navy) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-navy);
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-navy-2);
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-brass-2);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Scroll-reveal is now implemented in components/content/Reveal.tsx via
+   Framer Motion (Phase 6). The CSS-only .reveal/html.js mechanism it used to
+   depend on is gone — its safety guarantee (never permanently hidden without
+   JS) is now enforced in the component itself; see that file's comments. */
+
+/* Long-form content typography (service pages, resources) */
+.prose-medal p {
+  margin-bottom: 1.1em;
+  line-height: 1.7;
+  max-width: 68ch;
+}
+.prose-medal ul {
+  margin-bottom: 1.4em;
+}
+.prose-medal li {
+  margin-bottom: 0.55em;
+  line-height: 1.6;
+}
+
+/* No blanket `textarea { resize: vertical }` rule here any more — the one
+   textarea on this site (the contact form's message field) explicitly wants
+   resize-none per its own className, and an unlayered rule like that one
+   used to be would always beat Tailwind's layered `resize-none` utility
+   regardless of selector specificity, per the CSS cascade layers spec. */

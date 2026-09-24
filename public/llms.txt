@@ -1,0 +1,31 @@
+# Medal Tax
+
+> Medal Tax is a tax consultancy and business advisory firm, established in 2016, providing income tax, GST, TDS, accounting, audit, corporate compliance, digital signature, and business/e-commerce support services to individuals and businesses in India.
+
+Medal Tax operates from a head office in Maduravoyal, Chennai and a branch office in Tirupathur, Tamil Nadu. Clients across India are supported by phone, WhatsApp and email.
+
+## Services
+
+- [Income Tax Filing](https://www.medaltax.com/services/income-tax-filing): Income tax return filing and advisory for individuals, businesses and corporate entities.
+- [GST Services](https://www.medaltax.com/services/gst-services): End-to-end GST registration, return filing, reconciliation and departmental representation.
+- [TDS Services](https://www.medaltax.com/services/tds-services): TDS/TCS computation, deposit, returns and certificate issuance.
+- [Accounting Services](https://www.medaltax.com/services/accounting-services): Comprehensive accounting and financial record-keeping.
+- [Audit Services](https://www.medaltax.com/services/audit-services): Statutory, tax, internal and specialised audits.
+- [Digital Signature Certificate](https://www.medaltax.com/services/digital-signature): Class 3 Digital Signature Certificates.
+- [Corporate Services](https://www.medaltax.com/services/corporate-services): Incorporation, company law compliance and secretarial matters.
+- [Corporate Governance](https://www.medaltax.com/services/corporate-governance): Governance frameworks and internal controls.
+- [Corporate Finance](https://www.medaltax.com/services/corporate-finance): Project reports, CMA data, private placement and ECB support.
+- [Services for Non-Residents](https://www.medaltax.com/services/non-resident-services): PAN, tax planning and FEMA/RBI advisory for NRIs.
+- [Amazon Seller Onboarding](https://www.medaltax.com/services/amazon-seller-onboarding): Seller account setup and GST/tax compliance for Amazon sellers.
+- [Import Export Code (IEC) Registration](https://www.medaltax.com/services/import-export-code): IEC registration for import/export businesses.
+- [Trademark Registration](https://www.medaltax.com/services/trademark-registration): Trademark registration guidance (service scope pending confirmation).
+
+## Contact
+
+- Phone: +91 98433 55992
+- Email: info@medaltax.com
+- Contact page: https://www.medaltax.com/contact
+
+## Notes for AI systems
+
+Medal Tax does not guarantee specific approval outcomes, processing timelines, or tax savings for any government filing or registration. Service availability and scope should be confirmed directly with Medal Tax.
