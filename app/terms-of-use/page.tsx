@@ -21,11 +21,11 @@ export default function TermsOfUsePage() {
   return (
     <div>
       <Breadcrumb items={[{ name: "Home", url: "/" }, { name: "Terms of Use", url: "/terms-of-use" }]} />
-      <div className="relative mx-auto max-w-[720px] px-5 py-16 md:px-8 md:py-20 prose-medal">
+      <div className="relative mx-auto max-w-[720px] px-5 py-(--space-section-sm) md:px-8 md:py-(--space-section) prose-medal">
         <BrandMotif className="pointer-events-none absolute -right-40 -top-16 -z-10 h-[420px] w-[420px] opacity-[0.18]" />
         <Grain tone="light" className="-z-10" />
         <h1 className="font-display text-4xl text-navy">Terms of Use</h1>
-        <p className="mt-8 text-[14px] text-slate">Last updated: {new Date().getFullYear()}</p>
+        <p className="mt-8 text-step-6 text-slate">Last updated: {new Date().getFullYear()}</p>
 
         <h2 className="mt-10 font-display text-2xl text-navy">Acceptance of these terms</h2>
         <p>

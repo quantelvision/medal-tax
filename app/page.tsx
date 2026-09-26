@@ -5,8 +5,8 @@ import { PrimaryCTA, CallButton, WhatsAppButton } from "@/components/conversion/
 import { HomepageVideo } from "@/components/media/HomepageVideo";
 import { Reveal } from "@/components/content/Reveal";
 import { FAQAccordion } from "@/components/content/FAQAccordion";
-import { HeroMedia } from "@/components/media/HeroMedia";
-import { media } from "@/lib/media";
+import { HeroVideoBackground } from "@/components/media/HeroVideoBackground";
+import { media, heroVideos } from "@/lib/media";
 import Image from "next/image";
 import { serviceIcons } from "@/components/icons/services";
 import { Grain, HeroPattern, DotGrid, GradientMesh, SectionSeam } from "@/components/patterns";
@@ -64,18 +64,18 @@ export default function HomePage() {
       {/* No border-b here: SectionSeam below already performs the divider
           role at this boundary — a hairline underneath it would double up. */}
       <section className="relative overflow-hidden bg-navy text-paper">
-        <HeroMedia media={media.homeHero} priority />
+        <HeroVideoBackground media={media.homeHero} videos={heroVideos} />
         {/* hexagons: structure, an organized system — fits a flagship hero */}
         <HeroPattern id="home-hero-pattern" variant="hexagons" fill="var(--color-brass-light)" opacity={0.06} scale={1.3} />
         <Grain tone="dark" />
         <SectionSeam fill="var(--color-paper)" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 md:px-8 md:py-32">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) md:px-8 md:py-32">
           <div className="max-w-3xl">
-            <p className="text-[14.5px] text-brass-light">Tax consultancy &amp; business advisory · Since {site.establishedYear}</p>
+            <p className="text-step-7 text-brass-light">Tax consultancy &amp; business advisory · Since {site.establishedYear}</p>
             <h1 className="mt-5 font-display text-[2.6rem] leading-[1.08] md:text-6xl">
-              Tax and business compliance, handled properly.
+              Your Trusted Partner for Tax &amp; Business Compliance
             </h1>
-            <p className="mt-7 max-w-xl text-[17px] leading-relaxed text-paper/75">
+            <p className="mt-7 max-w-xl text-step-12 leading-relaxed text-paper/75">
               Medal Tax manages income tax, GST, TDS, accounting, audit and
               business registration for individuals and companies —
               so filings are accurate, deadlines are met, and questions get
@@ -94,7 +94,7 @@ export default function HomePage() {
                   further down the page is the one place Call/WhatsApp/Get
                   Started appear together as equal-weight options; here
                   they're a fallback for anyone who'd rather not fill a form. */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[14px] text-paper/65">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-step-6 text-paper/65">
                 <a
                   href={telHref(site.phones.primary)}
                   data-analytics-event="phone_click"
@@ -123,7 +123,7 @@ export default function HomePage() {
           oversized relative to the modest amount of text above it). */}
       <section className="relative overflow-hidden border-b border-line">
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) md:px-8">
           <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-center">
             <Reveal>
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg border border-line">
@@ -141,7 +141,7 @@ export default function HomePage() {
               <h2 className="font-display text-3xl leading-snug text-navy md:text-4xl">
                 A tax consultancy firm built around compliance you can rely on.
               </h2>
-              <div className="mt-6 space-y-5 text-[16px] leading-relaxed text-slate">
+              <div className="mt-6 space-y-5 text-step-10 leading-relaxed text-slate">
                 <p>
                   Medal Tax provides audit, tax consulting, management
                   advisory, accounting, and corporate compliance and
@@ -173,7 +173,7 @@ export default function HomePage() {
             carry 6-9:1 of headroom; see components/patterns/Grain.tsx for
             the verified numbers behind that split. */}
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) md:px-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="font-display text-3xl text-navy md:text-4xl">What we handle</h2>
             <Link href="/services" className="font-medium text-brass-2 transition-colors duration-(--dur-base) ease-standard hover:text-brass">
@@ -190,15 +190,15 @@ export default function HomePage() {
               >
                 <div>
                   <FeaturedIcon size="lg" className="text-brass-light" />
-                  <p className="mt-4 text-[13.5px] text-brass-light">{featuredServices[0].eyebrow}</p>
+                  <p className="mt-4 text-step-5 text-brass-light">{featuredServices[0].eyebrow}</p>
                   <p className="mt-3 font-display text-3xl leading-snug md:text-4xl">
                     {featuredServices[0].name}
                   </p>
-                  <p className="mt-4 max-w-md text-[15px] leading-relaxed text-paper/70">
+                  <p className="mt-4 max-w-md text-step-8 leading-relaxed text-paper/70">
                     {featuredServices[0].shortDescription}
                   </p>
                 </div>
-                <span className="mt-8 inline-block text-[14.5px] font-medium text-brass-light transition-colors duration-(--dur-base) ease-standard group-hover:text-brass-light/80">
+                <span className="mt-8 inline-block text-step-7 font-medium text-brass-light transition-colors duration-(--dur-base) ease-standard group-hover:text-brass-light/80">
                   Explore this service
                 </span>
               </Link>
@@ -217,7 +217,7 @@ export default function HomePage() {
                       <ServiceIcon size="md" className="shrink-0 text-brass-2" />
                       <div>
                         <p className="font-display text-lg text-ink transition-colors duration-(--dur-base) ease-standard group-hover:text-brass-2">{s.navLabel}</p>
-                        <p className="mt-1 text-[13.5px] text-slate">{s.eyebrow}</p>
+                        <p className="mt-1 text-step-5 text-slate">{s.eyebrow}</p>
                       </div>
                     </Link>
                   </RevealItem>
@@ -241,7 +241,7 @@ export default function HomePage() {
                   >
                     <ServiceIcon size="md" className="text-brass-2" />
                     <p className="mt-3 font-display text-xl text-navy transition-colors duration-(--dur-base) ease-standard group-hover:text-brass-2">{s.name}</p>
-                    <p className="mt-2 text-[14px] leading-relaxed text-slate">{s.shortDescription}</p>
+                    <p className="mt-2 text-step-6 leading-relaxed text-slate">{s.shortDescription}</p>
                   </Link>
                 </RevealItem>
               );
@@ -257,7 +257,7 @@ export default function HomePage() {
         <DotGrid id="home-video-dots" fill="var(--color-brass-light)" opacity={0.07} size={26} radius={1.1} />
         <Grain tone="dark" />
         <SectionSeam fill="var(--color-paper)" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) md:px-8">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-center">
             <Reveal>
               <div className="relative">
@@ -271,9 +271,9 @@ export default function HomePage() {
               </div>
             </Reveal>
             <Reveal>
-              <p className="text-[14.5px] text-brass-light">Medal Tax, in brief</p>
+              <p className="text-step-7 text-brass-light">Medal Tax, in brief</p>
               <h2 className="mt-3 font-display text-3xl text-paper md:text-4xl">See how we work</h2>
-              <p className="mt-4 max-w-md text-[15px] leading-relaxed text-paper/70">
+              <p className="mt-4 max-w-md text-step-8 leading-relaxed text-paper/70">
                 A tax consultancy built around direct access, not ticket
                 queues.
               </p>
@@ -284,8 +284,8 @@ export default function HomePage() {
                       <Icon icon={h.icon} size="sm" />
                     </span>
                     <div>
-                      <p className="font-display text-[16px] text-paper">{h.label}</p>
-                      <p className="mt-0.5 text-[13.5px] leading-relaxed text-paper/60">{h.body}</p>
+                      <p className="font-display text-step-10 text-paper">{h.label}</p>
+                      <p className="mt-0.5 text-step-5 leading-relaxed text-paper/60">{h.body}</p>
                     </div>
                   </li>
                 ))}
@@ -298,11 +298,11 @@ export default function HomePage() {
       {/* Who Medal Tax helps */}
       <section className="relative overflow-hidden border-b border-line">
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) md:px-8">
           <div className="grid gap-12 md:grid-cols-[1fr_1.4fr]">
             <Reveal>
               <h2 className="font-display text-3xl text-navy md:text-4xl">Who we help</h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-slate">
+              <p className="mt-4 text-step-8 leading-relaxed text-slate">
                 Individuals, businesses and cross-border clients, each with
                 different compliance needs.
               </p>
@@ -324,9 +324,9 @@ export default function HomePage() {
       {/* Team */}
       <section className="relative overflow-hidden border-b border-line bg-paper-2/50">
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) md:px-8">
           <h2 className="font-display text-3xl text-navy md:text-4xl">Speak with the right person</h2>
-          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-slate">
+          <p className="mt-3 max-w-xl text-step-8 leading-relaxed text-slate">
             Our specialists work on specific services — reach the right
             person directly by call or WhatsApp.
           </p>
@@ -352,11 +352,11 @@ export default function HomePage() {
       {/* FAQ */}
       <section className="relative overflow-hidden border-b border-line">
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) md:px-8">
           <div className="grid gap-12 md:grid-cols-[1fr_1.6fr]">
             <Reveal>
               <h2 className="font-display text-3xl text-navy md:text-4xl">Questions, answered</h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-slate">
+              <p className="mt-4 text-step-8 leading-relaxed text-slate">
                 A few common questions before you get in touch.
               </p>
             </Reveal>
@@ -373,9 +373,9 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b border-line bg-paper-2">
         <GradientMesh variant="corner" color="var(--color-brass)" peakOpacity={0.12} />
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-24 text-center md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section-lg) text-center md:px-8">
           <h2 className="font-display text-4xl text-navy md:text-5xl">Let&rsquo;s sort your tax and compliance work.</h2>
-          <p className="mx-auto mt-5 max-w-lg text-[16px] text-slate">
+          <p className="mx-auto mt-5 max-w-lg text-step-10 text-slate">
             Call, message us on WhatsApp, or send a short enquiry — we&rsquo;ll
             follow up with clear next steps.
           </p>
@@ -412,8 +412,8 @@ function AudienceCard({
         <Icon icon={icon} size="sm" />
       </span>
       <p className="mt-4 font-display text-lg text-navy">{title}</p>
-      <p className="mt-1.5 text-[14px] leading-relaxed text-slate">{body}</p>
-      <span className="mt-4 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-brass-2 transition-colors duration-(--dur-base) ease-standard group-hover:text-brass">
+      <p className="mt-1.5 text-step-6 leading-relaxed text-slate">{body}</p>
+      <span className="mt-4 inline-flex items-center gap-1.5 text-step-5 font-medium text-brass-2 transition-colors duration-(--dur-base) ease-standard group-hover:text-brass">
         Learn more
         <Icon icon={ArrowRight} size="xs" className="transition-transform duration-(--dur-base) ease-standard group-hover:translate-x-0.5" />
       </span>
@@ -453,7 +453,7 @@ function TeamCard({
         </span>
         <div>
           <p className="font-display text-xl text-navy">{name}</p>
-          <p className="mt-0.5 flex items-center gap-1.5 text-[13.5px] text-slate">
+          <p className="mt-0.5 flex items-center gap-1.5 text-step-5 text-slate">
             {ServiceIcon && <ServiceIcon size="xs" className="shrink-0 text-brass-2" />}
             {role}
           </p>

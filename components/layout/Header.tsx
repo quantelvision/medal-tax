@@ -78,11 +78,21 @@ export function Header() {
           >
             <button
               ref={servicesTriggerRef}
-              className="flex items-center gap-1 py-2 text-[15px] text-ink transition-colors duration-(--dur-base) ease-standard hover:text-brass-2"
+              className="flex items-center gap-1 py-2 text-step-8 text-ink transition-colors duration-(--dur-base) ease-standard hover:text-brass-2"
               aria-expanded={servicesOpen}
               aria-haspopup="true"
               aria-controls="services-menu"
-              onClick={() => setServicesOpen((v) => !v)}
+              // Open-only, not a toggle — a real bug, confirmed via CDP:
+              // any mouse click on this button is necessarily preceded by a
+              // mouseenter (you can't click what you aren't hovering), which
+              // already set servicesOpen=true. A toggling onClick then flips
+              // it straight back to false the instant the click lands,
+              // which is exactly what "the dropdown doesn't work" looks
+              // like for a mouse user. Closing is handled by onMouseLeave,
+              // Escape, and each link's own onClick — this handler only
+              // needs to cover keyboard users tabbing to the button and
+              // pressing Enter/Space, where no mouseenter ever fired.
+              onClick={() => setServicesOpen(true)}
             >
               Services
               <span
@@ -109,7 +119,7 @@ export function Header() {
                       const items = servicesByCategory(catKey);
                       return (
                         <div key={catKey}>
-                          <p className="mb-3 font-display text-[15px] text-navy">{cat.name}</p>
+                          <p className="mb-3 font-display text-step-8 text-navy">{cat.name}</p>
                           <ul className="space-y-2.5">
                             {items.map((s) => {
                               const ServiceIcon = serviceIcons[s.slug];
@@ -117,7 +127,7 @@ export function Header() {
                                 <li key={s.slug}>
                                   <Link
                                     href={`/services/${s.slug}`}
-                                    className="group flex items-center gap-2.5 text-[14px] leading-snug text-slate transition-colors duration-(--dur-base) ease-standard hover:text-brass-2"
+                                    className="group flex items-center gap-2.5 text-step-6 leading-snug text-slate transition-colors duration-(--dur-base) ease-standard hover:text-brass-2"
                                     onClick={() => setServicesOpen(false)}
                                   >
                                     <ServiceIcon size="sm" className="shrink-0 text-brass-2/70 transition-colors duration-(--dur-base) ease-standard group-hover:text-brass-2" />
@@ -134,7 +144,7 @@ export function Header() {
                   <div className="mt-6 border-t border-line pt-4">
                     <Link
                       href="/services"
-                      className="text-[14px] font-medium text-navy transition-colors duration-(--dur-base) ease-standard hover:text-brass-2"
+                      className="text-step-6 font-medium text-navy transition-colors duration-(--dur-base) ease-standard hover:text-brass-2"
                       onClick={() => setServicesOpen(false)}
                     >
                       View all services
@@ -149,7 +159,7 @@ export function Header() {
             <Link
               key={l.href}
               href={l.href}
-              className="py-2 text-[15px] text-ink transition-colors duration-(--dur-base) ease-standard hover:text-brass-2"
+              className="py-2 text-step-8 text-ink transition-colors duration-(--dur-base) ease-standard hover:text-brass-2"
             >
               {l.label}
             </Link>
@@ -162,7 +172,7 @@ export function Header() {
         <Link
           href="/contact"
           data-analytics-event="get_started_click"
-          className="hidden rounded-sm bg-brass-2 px-5 py-2.5 text-[15px] font-medium text-white transition-colors duration-(--dur-base) ease-standard hover:brightness-110 lg:inline-block"
+          className="hidden rounded-sm bg-brass-2 px-5 py-2.5 text-step-8 font-medium text-white transition-colors duration-(--dur-base) ease-standard hover:brightness-110 lg:inline-block"
         >
           Get Started
         </Link>
@@ -199,7 +209,7 @@ export function Header() {
                   <Link
                     key={l.href}
                     href={l.href}
-                    className="border-b border-line py-3 text-[16px] text-ink transition-colors duration-(--dur-base) ease-standard active:text-brass-2"
+                    className="border-b border-line py-3 text-step-10 text-ink transition-colors duration-(--dur-base) ease-standard active:text-brass-2"
                     onClick={() => setMobileOpen(false)}
                   >
                     {l.label}
@@ -209,7 +219,7 @@ export function Header() {
               <div className="mt-5">
                 <Link
                   href="/contact"
-                  className="block rounded-sm bg-brass-2 py-3 text-center text-[15px] font-medium text-white transition-colors duration-(--dur-base) ease-standard hover:brightness-110"
+                  className="block rounded-sm bg-brass-2 py-3 text-center text-step-8 font-medium text-white transition-colors duration-(--dur-base) ease-standard hover:brightness-110"
                   onClick={() => setMobileOpen(false)}
                 >
                   Get Started
@@ -229,7 +239,7 @@ function MobileServicesAccordion({ onNavigate }: { onNavigate: () => void }) {
   return (
     <div className="border-b border-line">
       <button
-        className="flex w-full items-center justify-between py-3 text-[16px] text-ink"
+        className="flex w-full items-center justify-between py-3 text-step-10 text-ink"
         aria-expanded={open}
         aria-controls="mobile-services-panel"
         onClick={() => setOpen((v) => !v)}
@@ -256,7 +266,7 @@ function MobileServicesAccordion({ onNavigate }: { onNavigate: () => void }) {
             <div className="pb-3 pl-2">
               {categoryOrder.map((catKey) => (
                 <div key={catKey} className="mb-3">
-                  <p className="mb-1.5 text-[13px] font-medium text-slate">{categories[catKey].name}</p>
+                  <p className="mb-1.5 text-step-4 font-medium text-slate">{categories[catKey].name}</p>
                   <ul>
                     {servicesByCategory(catKey).map((s) => {
                       const ServiceIcon = serviceIcons[s.slug];
@@ -264,7 +274,7 @@ function MobileServicesAccordion({ onNavigate }: { onNavigate: () => void }) {
                         <li key={s.slug}>
                           <Link
                             href={`/services/${s.slug}`}
-                            className="flex items-center gap-2.5 py-1.5 text-[15px] text-ink transition-colors duration-(--dur-base) ease-standard active:text-brass-2"
+                            className="flex items-center gap-2.5 py-1.5 text-step-8 text-ink transition-colors duration-(--dur-base) ease-standard active:text-brass-2"
                             onClick={onNavigate}
                           >
                             <ServiceIcon size="sm" className="shrink-0 text-brass-2/70" />

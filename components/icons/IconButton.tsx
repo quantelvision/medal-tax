@@ -59,7 +59,7 @@ export function IconButton({
       </button>
       <span
         aria-hidden="true"
-        className={`pointer-events-none absolute z-50 whitespace-nowrap rounded-sm border border-line-dark bg-navy px-2 py-1 text-[12px] font-medium text-paper opacity-0 transition-opacity duration-(--dur-fast) ease-standard group-hover/iconbtn:opacity-100 group-focus-within/iconbtn:opacity-100 ${place}`}
+        className={`pointer-events-none absolute z-50 whitespace-nowrap rounded-sm border border-line-dark bg-navy px-2 py-1 text-step-2 font-medium text-paper opacity-0 transition-opacity duration-(--dur-fast) ease-standard group-hover/iconbtn:opacity-100 group-focus-within/iconbtn:opacity-100 ${place}`}
       >
         {label}
       </span>

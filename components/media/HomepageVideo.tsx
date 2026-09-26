@@ -81,7 +81,7 @@ export function HomepageVideo() {
           onClick={() => setStarted(true)}
           className="group absolute inset-0 flex items-center justify-center bg-navy/45 transition-colors duration-(--dur-base) ease-standard hover:bg-navy/30"
         >
-          <span className="flex items-center gap-3 rounded-sm border border-paper/50 bg-navy/70 px-5 py-3 text-[14.5px] font-medium text-paper">
+          <span className="flex items-center gap-3 rounded-sm border border-paper/50 bg-navy/70 px-5 py-3 text-step-7 font-medium text-paper">
             <Icon icon={Play} size="sm" weight="fill" />
             Play the loop
           </span>

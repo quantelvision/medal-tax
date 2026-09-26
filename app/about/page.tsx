@@ -25,11 +25,11 @@ export default function AboutPage() {
         {/* overlappingCircles: connection, a team — fits Who We Are */}
         <HeroPattern id="about-hero-pattern" variant="overlappingCircles" fill="var(--color-brass-light)" opacity={0.06} scale={0.9} />
         <Grain tone="dark" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-16 md:px-8 md:py-24">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section-sm) md:px-8 md:py-(--space-section-lg)">
           <div className="max-w-2xl">
-            <p className="text-[14.5px] text-brass-light">Since {site.establishedYear}</p>
+            <p className="text-step-7 text-brass-light">Since {site.establishedYear}</p>
             <h1 className="mt-4 font-display text-4xl leading-tight md:text-5xl">Who We Are</h1>
-            <p className="mt-6 text-[17px] leading-relaxed text-paper/75">{aboutCopy.intro}</p>
+            <p className="mt-6 text-step-12 leading-relaxed text-paper/75">{aboutCopy.intro}</p>
           </div>
         </div>
       </section>
@@ -41,7 +41,7 @@ export default function AboutPage() {
           it. It's now paired directly with all four short text blocks. */}
       <section className="relative overflow-hidden border-b border-line">
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) md:px-8">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <Reveal className="lg:sticky lg:top-24">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg border border-line">
@@ -58,20 +58,20 @@ export default function AboutPage() {
             <div className="space-y-10">
               <Reveal>
                 <h2 className="font-display text-2xl text-navy">Our team</h2>
-                <p className="mt-4 text-[15.5px] leading-relaxed text-slate">{aboutCopy.team}</p>
+                <p className="mt-4 text-step-9 leading-relaxed text-slate">{aboutCopy.team}</p>
               </Reveal>
               <Reveal>
                 <h2 className="font-display text-2xl text-navy">Our approach</h2>
-                <p className="mt-4 text-[15.5px] leading-relaxed text-slate">{aboutCopy.positioning}</p>
+                <p className="mt-4 text-step-9 leading-relaxed text-slate">{aboutCopy.positioning}</p>
               </Reveal>
               <div className="grid gap-8 border-t border-line pt-10 sm:grid-cols-2">
                 <Reveal>
                   <p className="font-display text-xl text-navy">Vision</p>
-                  <p className="mt-3 text-[15px] leading-relaxed text-slate">{aboutCopy.vision}</p>
+                  <p className="mt-3 text-step-8 leading-relaxed text-slate">{aboutCopy.vision}</p>
                 </Reveal>
                 <Reveal>
                   <p className="font-display text-xl text-navy">Mission</p>
-                  <p className="mt-3 text-[15px] leading-relaxed text-slate">{aboutCopy.mission}</p>
+                  <p className="mt-3 text-step-8 leading-relaxed text-slate">{aboutCopy.mission}</p>
                 </Reveal>
               </div>
             </div>
@@ -82,9 +82,9 @@ export default function AboutPage() {
       {/* Team — typography-led, since no verified photography exists */}
       <section id="team" className="relative overflow-hidden border-b border-line bg-paper-2/50">
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) md:px-8">
           <h2 className="font-display text-3xl text-navy md:text-4xl">The people you&rsquo;ll speak with</h2>
-          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-slate">
+          <p className="mt-3 max-w-xl text-step-8 leading-relaxed text-slate">
             An individual can create an impact, but a team can achieve the
             extraordinary. Reach any team member directly by call or
             WhatsApp.
@@ -95,7 +95,7 @@ export default function AboutPage() {
               <div key={member.name} className="flex flex-col gap-4 py-7 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="font-display text-2xl text-navy">{member.name}</p>
-                  <p className="mt-1 text-[14.5px] text-slate">{member.role}</p>
+                  <p className="mt-1 text-step-7 text-slate">{member.role}</p>
                 </div>
                 <div className="flex flex-wrap gap-2.5">
                   <CallButton phone={member.phone} label="Call" />
@@ -117,7 +117,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden border-b border-line bg-paper-2">
         <GradientMesh variant="corner" color="var(--color-brass)" peakOpacity={0.12} />
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 text-center md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) text-center md:px-8">
           <h2 className="font-display text-3xl text-navy md:text-4xl">Have a question for our team?</h2>
           <div className="mt-7 flex justify-center">
             <PrimaryCTA href="/contact" eventName="get_started_click" className="!bg-brass-2 hover:!brightness-110">

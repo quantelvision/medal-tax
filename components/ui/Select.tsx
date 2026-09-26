@@ -69,7 +69,7 @@ export function Select({
         id={id}
         aria-invalid={ariaInvalid || undefined}
         aria-describedby={ariaDescribedBy}
-        className="flex w-full items-center justify-between rounded-sm border border-line bg-paper px-4 py-3 text-left text-[15px] text-ink outline-none transition-colors duration-(--dur-base) ease-standard focus-visible:border-brass-2 data-[placeholder]:text-slate aria-invalid:border-error"
+        className="flex w-full items-center justify-between rounded-sm border border-line bg-paper px-4 py-3 text-left text-step-8 text-ink outline-none transition-colors duration-(--dur-base) ease-standard focus-visible:border-brass-2 data-[placeholder]:text-slate aria-invalid:border-error"
       >
         <RadixSelect.Value placeholder={placeholder} />
         <RadixSelect.Icon className="ml-2 shrink-0 text-slate">
@@ -92,7 +92,7 @@ export function Select({
               <RadixSelect.Item
                 key={option}
                 value={option}
-                className="flex cursor-pointer items-center justify-between gap-2 px-3 py-2.5 text-[14.5px] text-ink outline-none transition-colors duration-(--dur-fast) ease-standard data-[highlighted]:bg-paper-2 data-[highlighted]:text-brass-2 data-[state=checked]:font-medium"
+                className="flex cursor-pointer items-center justify-between gap-2 px-3 py-2.5 text-step-7 text-ink outline-none transition-colors duration-(--dur-fast) ease-standard data-[highlighted]:bg-paper-2 data-[highlighted]:text-brass-2 data-[state=checked]:font-medium"
               >
                 <RadixSelect.ItemText>{option}</RadixSelect.ItemText>
                 <RadixSelect.ItemIndicator className="text-brass-2">

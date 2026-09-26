@@ -30,9 +30,9 @@ export default function WhoWeHelpPage() {
         {/* circlesAndSquares: varied shapes for varied audiences */}
         <HeroPattern id="whowehelp-hero-pattern" variant="circlesAndSquares" fill="var(--color-brass-light)" opacity={0.06} scale={1.1} />
         <Grain tone="dark" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-16 md:px-8 md:py-24">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section-sm) md:px-8 md:py-(--space-section-lg)">
           <h1 className="font-display text-4xl leading-tight md:text-5xl">Who We Help</h1>
-          <p className="mt-5 max-w-xl text-[16.5px] leading-relaxed text-paper/75">
+          <p className="mt-5 max-w-xl text-step-11 leading-relaxed text-paper/75">
             Different clients bring different compliance needs — here&rsquo;s how
             Medal Tax supports each of them.
           </p>
@@ -41,7 +41,7 @@ export default function WhoWeHelpPage() {
 
       <section className="relative overflow-hidden">
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-20 md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section) md:px-8">
           <RevealGroup className="grid gap-8 md:grid-cols-2">
             {audiences.map((a) => {
               const AudienceIcon = audienceIcons[a.slug];
@@ -70,7 +70,7 @@ export default function WhoWeHelpPage() {
                     )}
                     <div className="flex flex-1 flex-col p-7">
                       <h2 className="font-display text-2xl text-navy">{a.title}</h2>
-                      <p className="mt-3 text-[15px] leading-relaxed text-slate">{a.body}</p>
+                      <p className="mt-3 text-step-8 leading-relaxed text-slate">{a.body}</p>
 
                       <div className="mt-5 flex flex-wrap gap-2">
                         {a.services.map((s) => {
@@ -79,7 +79,7 @@ export default function WhoWeHelpPage() {
                             <Link
                               key={s.slug}
                               href={`/services/${s.slug}`}
-                              className="flex items-center gap-1.5 rounded-sm border border-line px-3 py-1.5 text-[13px] font-medium text-navy transition-colors duration-(--dur-base) ease-standard hover:border-brass/60 hover:text-brass-2"
+                              className="flex items-center gap-1.5 rounded-sm border border-line px-3 py-1.5 text-step-4 font-medium text-navy transition-colors duration-(--dur-base) ease-standard hover:border-brass/60 hover:text-brass-2"
                             >
                               <ServiceIcon size="xs" className="shrink-0 text-brass-2" />
                               {s.name}
@@ -109,9 +109,9 @@ export default function WhoWeHelpPage() {
 
       <section className="relative overflow-hidden border-t border-line bg-paper-2/50">
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-16 text-center md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section-sm) text-center md:px-8">
           <h2 className="font-display text-3xl text-navy">Don&rsquo;t see your situation here?</h2>
-          <p className="mx-auto mt-3 max-w-lg text-[15px] text-slate">
+          <p className="mx-auto mt-3 max-w-lg text-step-8 text-slate">
             Get in touch and we&rsquo;ll tell you plainly whether — and how — we
             can help.
           </p>

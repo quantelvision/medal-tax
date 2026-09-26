@@ -28,9 +28,9 @@ const REVIEW_SIZES = [
 
 export default function IconSheetPage() {
   return (
-    <div className="mx-auto max-w-[var(--container-page)] px-5 py-16 md:px-8">
+    <div className="mx-auto max-w-[var(--container-page)] px-5 py-(--space-section-sm) md:px-8">
       <h1 className="font-display text-3xl text-navy">Service icon set — contact sheet</h1>
-      <p className="mt-2 max-w-2xl text-[14.5px] text-slate">
+      <p className="mt-2 max-w-2xl text-step-7 text-slate">
         Internal review only. 48×48 viewBox, 2px stroke, round caps/joins,
         currentColor, fill:none throughout — one shape language across all 13.
         Not linked from navigation and excluded from the sitemap.
@@ -43,7 +43,7 @@ export default function IconSheetPage() {
             <div key={s.slug} className="flex flex-col gap-5 bg-paper p-6">
               <div>
                 <p className="font-display text-lg text-navy">{s.name}</p>
-                <p className="text-[12.5px] text-slate">{s.slug}</p>
+                <p className="text-step-3 text-slate">{s.slug}</p>
               </div>
               <div className="flex flex-wrap items-end gap-6">
                 {REVIEW_SIZES.map((r) => (
@@ -56,7 +56,7 @@ export default function IconSheetPage() {
                         <ServiceIcon size={r.key === "md" ? "md" : "lg"} />
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate">{r.label}</p>
+                    <p className="text-step-1 text-slate">{r.label}</p>
                   </div>
                 ))}
                 {/* On paper's dark counterpart, to check the currentColor
@@ -65,7 +65,7 @@ export default function IconSheetPage() {
                   <div className="flex h-10 w-10 items-center justify-center bg-navy text-paper">
                     <ServiceIcon size="md" />
                   </div>
-                  <p className="text-[11px] text-slate">on navy</p>
+                  <p className="text-step-1 text-slate">on navy</p>
                 </div>
               </div>
             </div>

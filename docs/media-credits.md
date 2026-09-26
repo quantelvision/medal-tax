@@ -42,12 +42,27 @@ Images were cropped and re-encoded to WebP; originals were not retained.
 | Slot | Page | Contributor | Source | Delivered | Size |
 |---|---|---|---|---|---|
 | `how-we-work` | home | [u_dwkxvkvwv8](https://pixabay.com/users/44961808/) | [Pixabay video #221506](https://pixabay.com/videos/id-221506/) | 1280×720, 5s, silent | 377KB mp4 / 335KB webm |
+| `hero/1` | home | Supplied directly by the user | — | 1280×720, 7s, silent | 858KB mp4 / 455KB webm |
+| `hero/2` | home | Supplied directly by the user | — | 1280×720, 7s, silent | 1.4MB mp4 / 1.27MB webm |
+| `hero/3` | home | Supplied directly by the user | — | 1280×720, 5s, silent | 695KB mp4 / 605KB webm |
+| `hero/4` | home | Supplied directly by the user | — | 1280×720, 12s, silent | 1.55MB mp4 / 708KB webm |
 
-Re-encoded to 1280×720 with the audio track removed entirely and saturation
-reduced to 0.72 so the binder colours sit with the navy/brass palette. It
-autoplays muted and looping, and never autoplays under
-`prefers-reduced-motion: reduce` — that case shows the poster frame with an
-explicit control instead.
+`how-we-work` was re-encoded to 1280×720 with the audio track removed
+entirely and saturation reduced to 0.72 so the binder colours sit with the
+navy/brass palette. It autoplays muted and looping, and never autoplays
+under `prefers-reduced-motion: reduce` — that case shows the poster frame
+with an explicit control instead.
+
+`hero/1` through `hero/4` are the homepage hero background playlist
+(`components/media/HeroVideoBackground.tsx`) — cycles 1 -> 2 -> 3 -> 4 ->
+back to 1, autoplaying muted under the same navy scrim as the static hero
+image, which remains the permanent fallback under
+`prefers-reduced-motion: reduce`. Two of the original sources were
+significantly higher resolution than needed (one 3840×2160/4K/40MB, one
+2560×1440) and were re-encoded down to a consistent spec (1280×720, no
+audio, h264 CRF 24 + vp9 CRF 32, faststart). The originals were kept
+temporarily outside the served `public/` tree (at `original-media/hero/`,
+gitignored) and have since been deleted at the user's request.
 
 ## SVG patterns
 

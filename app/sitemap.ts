@@ -4,6 +4,10 @@ import { services } from "@/lib/data/services";
 const BASE = "https://www.medaltax.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // terms-of-use and disclaimer are deliberately excluded — both carry
+  // `robots: { index: false }` (their content is still generic boilerplate
+  // pending Medal Tax/counsel review), and a noindex page listed in the
+  // sitemap is a real, if minor, contradiction search engines flag.
   const staticRoutes = [
     "",
     "/about",
@@ -12,8 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources",
     "/contact",
     "/privacy-policy",
-    "/terms-of-use",
-    "/disclaimer",
   ].map((path) => ({
     url: `${BASE}${path}`,
     lastModified: new Date(),

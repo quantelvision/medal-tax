@@ -38,7 +38,7 @@ export function FAQAccordion({ faqs, title = "Frequently asked questions" }: { f
                 aria-controls={panelId}
                 onClick={() => setOpenIndex(isOpen ? null : i)}
               >
-                <span className="text-[16.5px] font-medium text-ink">{faq.q}</span>
+                <span className="text-step-11 font-medium text-ink">{faq.q}</span>
                 <span
                   aria-hidden="true"
                   className="shrink-0 text-brass-2 transition-transform duration-(--dur-base) ease-standard"
@@ -61,7 +61,7 @@ export function FAQAccordion({ faqs, title = "Frequently asked questions" }: { f
                     transition={reduceMotion ? { duration: 0 } : { duration: 0.22, ease: EASE_STANDARD }}
                     className="overflow-hidden"
                   >
-                    <p className="max-w-2xl pb-5 pr-8 text-[15px] leading-relaxed text-slate">{faq.a}</p>
+                    <p className="max-w-2xl pb-5 pr-8 text-step-8 leading-relaxed text-slate">{faq.a}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

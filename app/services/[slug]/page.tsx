@@ -71,16 +71,16 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             one specific compliance service */}
         <HeroPattern id="service-hero-pattern" variant="stampCollection" fill="var(--color-brass-light)" opacity={0.06} scale={0.85} />
         <Grain tone="dark" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-16 md:px-8 md:py-24">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section-sm) md:px-8 md:py-(--space-section-lg)">
           <div className="max-w-3xl">
             {/* Decorative: service.name renders as the H1 immediately below,
                 so it is already the accessible label for this icon. */}
             <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-md border border-paper/30">
               <ServiceIcon size="lg" />
             </div>
-            <p className="text-[14.5px] text-brass-light">{service.eyebrow}</p>
+            <p className="text-step-7 text-brass-light">{service.eyebrow}</p>
             <h1 className="mt-4 font-display text-4xl leading-[1.1] md:text-5xl">{service.name}</h1>
-            <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-paper/75">{service.heroDescription}</p>
+            <p className="mt-6 max-w-2xl text-step-12 leading-relaxed text-paper/75">{service.heroDescription}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <PrimaryCTA href="/contact" eventName="service_cta_click" className="!bg-brass-2 hover:!brightness-110">
                 Get Started
@@ -92,7 +92,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <div className="mx-auto max-w-[var(--container-page)] px-5 py-16 md:px-8 md:py-20">
+      <div className="mx-auto max-w-[var(--container-page)] px-5 py-(--space-section-sm) md:px-8 md:py-(--space-section)">
         <div className="grid gap-16 lg:grid-cols-[1fr_320px]">
           {/* Main content */}
           <div className="space-y-16 prose-medal">
@@ -132,7 +132,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <h2 className="font-display text-2xl text-navy">Important considerations</h2>
                   <ul className="mt-4 space-y-3">
                     {service.considerations.map((c) => (
-                      <li key={c} className="text-[14.5px] leading-relaxed text-slate">
+                      <li key={c} className="text-step-7 leading-relaxed text-slate">
                         {c}
                       </li>
                     ))}
@@ -162,7 +162,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             )}
             <div className="rounded-md border border-line p-7">
               <p className="font-display text-xl text-navy">Ready to get started?</p>
-              <p className="mt-2 text-[14.5px] leading-relaxed text-slate">
+              <p className="mt-2 text-step-7 leading-relaxed text-slate">
                 Tell us about your situation and our team will follow up by
                 call or WhatsApp with next steps.
               </p>
@@ -180,11 +180,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       {/* Large CTA */}
       <section className="relative overflow-hidden border-t border-line bg-paper-2">
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-16 text-center md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section-sm) text-center md:px-8">
           <h2 className="font-display text-3xl text-navy md:text-4xl">
             Talk to Medal Tax about {service.name.toLowerCase()}
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-[15.5px] text-slate">
+          <p className="mx-auto mt-4 max-w-xl text-step-9 text-slate">
             Call, message us on WhatsApp, or send an enquiry — our team will
             follow up with clear next steps.
           </p>

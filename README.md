@@ -66,8 +66,27 @@ file's comments for what it does and doesn't cover.
 `@vercel/analytics` and `@vercel/speed-insights` are wired into
 `app/layout.tsx` (`<Analytics />` / `<SpeedInsights />`). Both are no-ops
 unless the site is actually deployed on Vercel — no env vars or setup
-needed, they activate automatically once deployed there. This is separate
-from the GA4/GTM setup in `.env.example`, which works anywhere.
+needed, they activate automatically once deployed there.
+
+GA4, Google Tag Manager, and Google Search Console verification are
+separately wired via `@next/third-parties/google` and `metadata.verification`
+in the same file — each reads its own var from `.env.example`
+(`NEXT_PUBLIC_GA4_MEASUREMENT_ID` / `NEXT_PUBLIC_GTM_CONTAINER_ID` /
+`NEXT_PUBLIC_GSC_VERIFICATION`) and renders nothing at all if that var is
+unset, so leaving them blank is safe.
+
+## SEO
+
+- `app/opengraph-image.tsx` / `app/twitter-image.tsx` generate a single
+  shared branded social-preview image at build time (`next/og`'s
+  `ImageResponse`, not a static file) — applies sitewide as the fallback
+  image since no route defines its own yet.
+- `app/sitemap.ts` / `app/robots.ts` are wired up; the sitemap deliberately
+  excludes `/terms-of-use` and `/disclaimer` (both `noindex`).
+- Structured data (`components/seo/StructuredData.tsx`): `OrganizationSchema`
+  (root layout), `BreadcrumbSchema` (auto-injected by the shared
+  `Breadcrumb` component), `ServiceSchema` (every service page), `FAQSchema`
+  (every FAQ accordion).
 
 ## Before launch
 

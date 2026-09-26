@@ -80,7 +80,7 @@ export function ContactForm() {
     return (
       <div role="status" className="rounded-md border border-line bg-paper p-8">
         <p className="font-display text-2xl text-navy">Thank you — we&rsquo;ve received your enquiry.</p>
-        <p className="mt-3 text-[15px] leading-relaxed text-slate">
+        <p className="mt-3 text-step-8 leading-relaxed text-slate">
           A member of the Medal Tax team will follow up by phone or WhatsApp
           shortly. For anything urgent, call{" "}
           <a href="tel:+919843355992" className="font-medium text-brass-2">
@@ -100,11 +100,11 @@ export function ContactForm() {
           tabIndex={-1}
           className="rounded-sm border border-error bg-paper px-5 py-4 outline-none"
         >
-          <p className="flex items-center gap-2 text-[14.5px] font-medium text-error">
+          <p className="flex items-center gap-2 text-step-7 font-medium text-error">
             <Icon icon={WarningCircle} size="sm" weight="fill" />
             Please fix the following before sending:
           </p>
-          <ul className="mt-2 space-y-1 pl-6 text-[14px] text-error">
+          <ul className="mt-2 space-y-1 pl-6 text-step-6 text-error">
             {errorList.map(([field, err]) => (
               <li key={field}>
                 <a href={`#${field}`} className="underline underline-offset-2">
@@ -127,7 +127,7 @@ export function ContactForm() {
       <div
         role="status"
         aria-live="polite"
-        className={status === "error" ? "rounded-sm border border-error bg-paper px-5 py-3 text-[14px] text-error" : "sr-only"}
+        className={status === "error" ? "rounded-sm border border-error bg-paper px-5 py-3 text-step-6 text-error" : "sr-only"}
       >
         {statusMessage}
       </div>
@@ -204,7 +204,7 @@ export function ContactForm() {
         type="submit"
         disabled={isSubmitting}
         data-analytics-event="contact_form_submit"
-        className="inline-flex items-center gap-2.5 rounded-sm bg-navy px-7 py-3 text-[15px] font-medium text-paper transition-colors duration-(--dur-base) ease-standard hover:bg-navy-2 disabled:cursor-not-allowed disabled:opacity-70"
+        className="inline-flex items-center gap-2.5 rounded-sm bg-navy px-7 py-3 text-step-8 font-medium text-paper transition-colors duration-(--dur-base) ease-standard hover:bg-navy-2 disabled:cursor-not-allowed disabled:opacity-70"
       >
         <Icon icon={isSubmitting ? ArrowClockwise : PaperPlaneTilt} size="sm" className={isSubmitting ? "animate-spin" : ""} />
         {isSubmitting ? "Sending…" : "Send enquiry"}
@@ -214,7 +214,7 @@ export function ContactForm() {
 }
 
 const inputClass =
-  "w-full rounded-sm border border-line bg-paper px-4 py-3 text-[15px] text-ink transition-colors duration-(--dur-base) ease-standard focus-visible:border-brass-2 aria-invalid:border-error";
+  "w-full rounded-sm border border-line bg-paper px-4 py-3 text-step-8 text-ink transition-colors duration-(--dur-base) ease-standard focus-visible:border-brass-2 aria-invalid:border-error";
 
 function Field({
   label,
@@ -229,12 +229,12 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className="mb-1.5 block text-[13.5px] font-medium text-slate">
+      <label htmlFor={htmlFor} className="mb-1.5 block text-step-5 font-medium text-slate">
         {label}
       </label>
       {children}
       {error && (
-        <p id={`${htmlFor}-error`} className="mt-1.5 text-[13px] text-error">
+        <p id={`${htmlFor}-error`} className="mt-1.5 text-step-4 text-error">
           {error}
         </p>
       )}

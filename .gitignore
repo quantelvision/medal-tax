@@ -31,3 +31,7 @@ yarn-error.log*
 
 # Claude Code session-local state, not project content
 /.claude/
+
+# Original high-resolution source videos, kept for re-encoding later if ever
+# needed — the web-ready re-encodes actually served live in public/videos/.
+/original-media/

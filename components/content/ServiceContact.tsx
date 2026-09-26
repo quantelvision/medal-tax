@@ -20,12 +20,12 @@ export function ServiceContact({
 
   return (
     <div className="rounded-md border border-line bg-paper-2/60 p-7">
-      <p className="flex items-center gap-2 text-[14px] font-medium text-brass-2">
+      <p className="flex items-center gap-2 text-step-6 font-medium text-brass-2">
         {ServiceIcon && <ServiceIcon size="sm" className="shrink-0" />}
         {serviceName}
       </p>
       <p className="mt-2 font-display text-2xl text-navy">Speak with {person.name}</p>
-      <p className="mt-1 text-[14.5px] text-slate">{person.role}</p>
+      <p className="mt-1 text-step-7 text-slate">{person.role}</p>
       <div className="mt-5 flex flex-wrap gap-3">
         <CallButton phone={person.phone} label={`Call ${person.name}`} />
         <WhatsAppButton waNumber={person.whatsapp} message={message} label={`WhatsApp ${person.name}`} />

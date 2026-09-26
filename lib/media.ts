@@ -61,6 +61,27 @@ export const media = {
   contactOffices: m(contactOffices, "The Shore Temple at Mahabalipuram in Tamil Nadu, silhouetted against a sunrise sky."),
 } as const;
 
+/**
+ * Homepage hero background video playlist — plays in order, looping back to
+ * the start (1 -> 2 -> ... -> 1). `media.homeHero` (the existing static
+ * image) stays the fallback: it's what renders under prefers-reduced-motion,
+ * before the video has started, and if playback ever fails, so it still
+ * needs re-encoding/updating on its own if the imagery changes.
+ *
+ * Re-encoded from the originals (one was a 40MB 4K source) down to 1280x720,
+ * no audio track, h264 mp4 + vp9 webm — see docs/media-credits.md. To add
+ * another video, re-encode it the same way into
+ * public/videos/hero/<N>.(mp4|webm) and add one entry below; nothing else
+ * needs to change. Currently 4 entries — keep this array in sync with
+ * whatever files actually exist in that folder if it's ever reorganized.
+ */
+export const heroVideos = [
+  { mp4: "/videos/hero/1.mp4", webm: "/videos/hero/1.webm" },
+  { mp4: "/videos/hero/2.mp4", webm: "/videos/hero/2.webm" },
+  { mp4: "/videos/hero/3.mp4", webm: "/videos/hero/3.webm" },
+  { mp4: "/videos/hero/4.mp4", webm: "/videos/hero/4.webm" },
+] as const;
+
 /** Poster frame for the homepage loop. */
 export const howWeWork = {
   poster: howWeWorkPoster,

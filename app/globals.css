@@ -25,8 +25,8 @@
      shadows) is still deferred. */
   --color-error: #9a2c2c;
 
-  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-sans: "IBM Plex Sans", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-sans: "Public Sans", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 
   --container-page: 1280px;
 
@@ -43,16 +43,42 @@
   --ease-entrance: cubic-bezier(0.05, 0.7, 0.1, 1); /* things arriving (reveals) */
   --ease-exit: cubic-bezier(0.3, 0, 0.8, 0.15); /* things leaving (page transitions) */
 
-  /* Radius scale — Phase 8. Deliberately restrained: this site's structural
-     language is sharp hairline borders, so radius is used only as a small
-     interactivity signal on buttons/inputs/cards/media, never as a visual
-     motif in its own right. These are the exact values proposed (unused)
-     back in the Phase 0 token audit, overriding Tailwind's own larger
-     defaults for the same names. */
-  --radius-xs: 1px;
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 8px;
+  /* Radius scale — bumped up a deliberate step from Phase 8's restrained
+     1/2/4/8px set, per explicit instruction to read as more rounded
+     sitewide. Centralized here exactly so that was a one-file change:
+     every rounded-xs/sm/md/lg utility everywhere updates automatically. */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Type scale — centralizes every distinct small-text size actually in use
+     sitewide. This is NOT the clean deliberate scale the Phase 0 audit
+     proposed (that one consolidates 15px -> 16px and similar, a visible
+     site-wide re-flow that needs a deliberate decision, not a silent one
+     made while wiring up "configurable from one place"). Instead, each of
+     the 12 distinct arbitrary text-[Npx] sizes actually found in the
+     codebase gets its own named step, in ascending order, at its EXACT
+     current pixel value — zero visual change today, but every size that
+     used to be a scattered literal is now a single named token. Naming is
+     "step-N" rather than semantic (xs/sm/base…) on purpose: these were
+     never a deliberate scale to begin with (the same pixel value serves as
+     an eyebrow in one place and a card body in another), so a semantic name
+     would claim a consistency that doesn't exist yet. Consolidating this
+     down to a smaller, deliberate scale is a real design decision — flagged
+     as a follow-up, not done here. */
+  --text-step-1: 11px;
+  --text-step-2: 12px;
+  --text-step-3: 12.5px;
+  --text-step-4: 13px;
+  --text-step-5: 13.5px;
+  --text-step-6: 14px;
+  --text-step-7: 14.5px;
+  --text-step-8: 15px;
+  --text-step-9: 15.5px;
+  --text-step-10: 16px;
+  --text-step-11: 16.5px;
+  --text-step-12: 17px;
 }
 
 :root {
@@ -60,6 +86,19 @@
   --dur-base: 200ms; /* hover/focus feedback, default */
   --dur-slow: 250ms; /* hover/focus feedback, upper end of the 150-250ms band */
   --dur-reveal: 500ms; /* scroll-reveal entrances — outside the interaction-feedback band on purpose */
+
+  /* Section vertical rhythm — centralizes the 4 distinct py-* values used
+     for section wrappers sitewide (previously plain py-14/16/20/24
+     Tailwind spacing utilities with no way to retune the rhythm globally).
+     Same exact-value-preserved approach as the type scale above. Tailwind
+     v4 has no named --spacing-* namespace (spacing utilities all derive
+     from the single --spacing multiplier), so these are plain custom
+     properties consumed via the `py-(--space-section-*)` arbitrary-property
+     syntax rather than generating their own utility class names. */
+  --space-section-xs: 3.5rem; /* 56px, was py-14 */
+  --space-section-sm: 4rem; /* 64px, was py-16 */
+  --space-section: 5rem; /* 80px, was py-20 */
+  --space-section-lg: 6rem; /* 96px, was py-24 */
 }
 
 @media (prefers-reduced-motion: reduce) {

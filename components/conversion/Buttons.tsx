@@ -21,7 +21,7 @@ import { Icon } from "@/components/icons";
  * classes (padding, flex, etc.) are unaffected and don't need it.
  */
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-[15px] font-medium transition-colors duration-(--dur-base) ease-standard focus-visible:outline-2";
+  "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-step-8 font-medium transition-colors duration-(--dur-base) ease-standard focus-visible:outline-2";
 
 export function PrimaryCTA({
   href,

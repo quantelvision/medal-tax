@@ -10,6 +10,7 @@ import { PageTransition } from "@/components/motion/PageTransition";
 import { ScrollToTop } from "@/components/motion/ScrollToTop";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.medaltax.com"),
@@ -35,6 +36,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  // Was documented in .env.example but never actually consumed anywhere —
+  // set NEXT_PUBLIC_GSC_VERIFICATION and this renders the
+  // <meta name="google-site-verification"> tag Search Console asks for.
+  // Omitted entirely (not an empty tag) when the env var isn't set.
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } }
+    : {}),
 };
 
 export default function RootLayout({
@@ -48,7 +56,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&family=Public+Sans:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -73,6 +81,15 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
       </body>
+      {/* Same "documented but never wired up" gap as the GSC verification
+          tag above. Both render nothing when their env var is unset, so a
+          site without real IDs configured yet stays exactly as before. */}
+      {process.env.NEXT_PUBLIC_GTM_CONTAINER_ID && (
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_CONTAINER_ID} />
+      )}
+      {process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID} />
+      )}
     </html>
   );
 }

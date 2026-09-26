@@ -24,9 +24,9 @@ export default function ContactPage() {
         {/* connections: literally named for this one */}
         <HeroPattern id="contact-hero-pattern" variant="connections" fill="var(--color-brass-light)" opacity={0.06} scale={1.2} />
         <Grain tone="dark" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-16 md:px-8 md:py-20">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section-sm) md:px-8 md:py-(--space-section)">
           <h1 className="font-display text-4xl leading-tight md:text-5xl">Contact Medal Tax</h1>
-          <p className="mt-5 max-w-xl text-[16.5px] leading-relaxed text-paper/75">
+          <p className="mt-5 max-w-xl text-step-11 leading-relaxed text-paper/75">
             Reach us directly, or send a short enquiry below and we&rsquo;ll follow
             up with next steps.
           </p>
@@ -39,7 +39,7 @@ export default function ContactPage() {
 
       <section className="relative overflow-hidden">
         <Grain tone="light" />
-        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-16 md:px-8">
+        <div className="relative mx-auto max-w-[var(--container-page)] px-5 py-(--space-section-sm) md:px-8">
           <div className="grid gap-14 lg:grid-cols-[1fr_1fr]">
             <div>
               <h2 className="font-display text-2xl text-navy">Send an enquiry</h2>
@@ -51,7 +51,7 @@ export default function ContactPage() {
             <div className="space-y-10">
               <div>
                 <h2 className="font-display text-2xl text-navy">Get in touch</h2>
-                <div className="mt-5 space-y-2.5 text-[15px] text-ink">
+                <div className="mt-5 space-y-2.5 text-step-8 text-ink">
                   <p className="flex items-center gap-2.5">
                     <Icon icon={Phone} size="xs" className="text-brass-2" />
                     {site.phones.primary}
@@ -74,14 +74,14 @@ export default function ContactPage() {
                       <Icon icon={MapPin} size="xs" className="text-brass-2" />
                       {o.label}
                     </p>
-                    <address className="mt-2 text-[14.5px] leading-relaxed text-slate not-italic">
+                    <address className="mt-2 text-step-7 leading-relaxed text-slate not-italic">
                       {o.lines.map((line) => (
                         <span key={line} className="block">
                           {line}
                         </span>
                       ))}
                     </address>
-                    <a href={o.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-[13.5px] font-medium text-brass-2">
+                    <a href={o.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-step-5 font-medium text-brass-2">
                       View on map
                     </a>
                   </div>
